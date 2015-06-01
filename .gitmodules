@@ -1,0 +1,3 @@
+[submodule "themes/silverstripe-h5bp"]
+	path = themes/silverstripe-h5bp
+	url = https://github.com/edcala/silverstripe-h5bp.git
