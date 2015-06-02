@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2015 at 05:40 PM
+-- Generation Time: Jun 02, 2015 at 04:27 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `member` (
 --
 
 INSERT INTO `member` (`ID`, `ClassName`, `Created`, `LastEdited`, `FirstName`, `Surname`, `Email`, `TempIDHash`, `TempIDExpired`, `Password`, `RememberLoginToken`, `NumVisit`, `LastVisited`, `AutoLoginHash`, `AutoLoginExpired`, `PasswordEncryption`, `Salt`, `PasswordExpiry`, `LockedOutUntil`, `Locale`, `FailedLoginCount`, `DateFormat`, `TimeFormat`) VALUES
-(1, 'Member', '2015-06-01 10:38:28', '2015-06-01 11:13:34', 'Default Admin', NULL, 'ed.cala@edz-site.com', '4fe591951ae727f866c778320769622100c00d81', '2015-06-04 11:13:34', '$2y$10$ccdcab6f4f311461aae2eOrU1SOSx47uAXDbVlaTO0l.kzGhNSc.K', NULL, 3, '2015-06-02 01:37:37', NULL, NULL, 'blowfish', '10$ccdcab6f4f311461aae2ed', NULL, NULL, 'en_US', 0, NULL, NULL);
+(1, 'Member', '2015-06-01 10:38:28', '2015-06-01 11:13:34', 'Default Admin', NULL, 'ed.cala@edz-site.com', '4fe591951ae727f866c778320769622100c00d81', '2015-06-04 11:13:34', '$2y$10$ccdcab6f4f311461aae2eOrU1SOSx47uAXDbVlaTO0l.kzGhNSc.K', NULL, 3, '2015-06-02 12:23:37', NULL, NULL, 'blowfish', '10$ccdcab6f4f311461aae2ed', NULL, NULL, 'en_US', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -419,7 +419,7 @@ CREATE TABLE IF NOT EXISTS `siteconfig` (
 --
 
 INSERT INTO `siteconfig` (`ID`, `ClassName`, `Created`, `LastEdited`, `Title`, `Tagline`, `Theme`, `CanViewType`, `CanEditType`, `CanCreateTopLevelType`) VALUES
-(1, 'SiteConfig', '2015-06-01 10:38:26', '2015-06-01 16:41:27', 'The Monkeys Form Test', NULL, 'html5boilerplate', 'Anyone', 'LoggedInUsers', 'LoggedInUsers');
+(1, 'SiteConfig', '2015-06-01 10:38:26', '2015-06-01 22:21:38', 'The Monkeys Form Test', NULL, 'silverstripe-h5bp', 'Anyone', 'LoggedInUsers', 'LoggedInUsers');
 
 -- --------------------------------------------------------
 
@@ -474,7 +474,7 @@ CREATE TABLE IF NOT EXISTS `siteconfig_viewergroups` (
 
 CREATE TABLE IF NOT EXISTS `sitetree` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `ClassName` enum('SiteTree','Page','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
+  `ClassName` enum('SiteTree','Page','HomePage','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
   `Created` datetime DEFAULT NULL,
   `LastEdited` datetime DEFAULT NULL,
   `URLSegment` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
@@ -504,7 +504,7 @@ CREATE TABLE IF NOT EXISTS `sitetree` (
 --
 
 INSERT INTO `sitetree` (`ID`, `ClassName`, `Created`, `LastEdited`, `URLSegment`, `Title`, `MenuTitle`, `Content`, `MetaDescription`, `ExtraMeta`, `ShowInMenus`, `ShowInSearch`, `Sort`, `HasBrokenFile`, `HasBrokenLink`, `ReportClass`, `CanViewType`, `CanEditType`, `Version`, `ParentID`) VALUES
-(1, 'Page', '2015-06-01 10:38:27', '2015-06-01 10:38:29', 'home', 'Home', NULL, '<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href="admin/">the CMS</a>. You can now access the <a href="http://doc.silverstripe.org">developer documentation</a>, or begin <a href="http://doc.silverstripe.org/doku.php?id=tutorials">the tutorials.</a></p>', NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
+(1, 'HomePage', '2015-06-01 10:38:27', '2015-06-01 23:52:32', 'home', 'Home', NULL, '<div id="contact-form" class="clearfix">Please enter your contact details in the form below.</div>', NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 4, 0),
 (2, 'Page', '2015-06-01 10:38:27', '2015-06-01 10:38:29', 'about-us', 'About Us', NULL, '<p>You can fill this page out with your own content, or delete it and create your own pages.<br /></p>', NULL, NULL, 1, 1, 2, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
 (3, 'Page', '2015-06-01 10:38:27', '2015-06-01 10:38:29', 'contact-us', 'Contact Us', NULL, '<p>You can fill this page out with your own content, or delete it and create your own pages.<br /></p>', NULL, NULL, 1, 1, 3, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
 (4, 'ErrorPage', '2015-06-01 10:38:27', '2015-06-01 10:38:29', 'page-not-found', 'Page not found', NULL, '<p>Sorry, it seems you were trying to access a page that doesn''t exist.</p><p>Please check the spelling of the URL you were trying to access and try again.</p>', NULL, NULL, 0, 0, 4, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
@@ -565,7 +565,7 @@ CREATE TABLE IF NOT EXISTS `sitetree_linktracking` (
 
 CREATE TABLE IF NOT EXISTS `sitetree_live` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `ClassName` enum('SiteTree','Page','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
+  `ClassName` enum('SiteTree','Page','HomePage','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
   `Created` datetime DEFAULT NULL,
   `LastEdited` datetime DEFAULT NULL,
   `URLSegment` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
@@ -595,7 +595,7 @@ CREATE TABLE IF NOT EXISTS `sitetree_live` (
 --
 
 INSERT INTO `sitetree_live` (`ID`, `ClassName`, `Created`, `LastEdited`, `URLSegment`, `Title`, `MenuTitle`, `Content`, `MetaDescription`, `ExtraMeta`, `ShowInMenus`, `ShowInSearch`, `Sort`, `HasBrokenFile`, `HasBrokenLink`, `ReportClass`, `CanViewType`, `CanEditType`, `Version`, `ParentID`) VALUES
-(1, 'Page', '2015-06-01 10:38:27', '2015-06-01 10:38:27', 'home', 'Home', NULL, '<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href="admin/">the CMS</a>. You can now access the <a href="http://doc.silverstripe.org">developer documentation</a>, or begin <a href="http://doc.silverstripe.org/doku.php?id=tutorials">the tutorials.</a></p>', NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
+(1, 'HomePage', '2015-06-01 10:38:27', '2015-06-01 23:52:32', 'home', 'Home', NULL, '<div id="contact-form" class="clearfix">Please enter your contact details in the form below.</div>', NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 4, 0),
 (2, 'Page', '2015-06-01 10:38:27', '2015-06-01 10:38:27', 'about-us', 'About Us', NULL, '<p>You can fill this page out with your own content, or delete it and create your own pages.<br /></p>', NULL, NULL, 1, 1, 2, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
 (3, 'Page', '2015-06-01 10:38:27', '2015-06-01 10:38:27', 'contact-us', 'Contact Us', NULL, '<p>You can fill this page out with your own content, or delete it and create your own pages.<br /></p>', NULL, NULL, 1, 1, 3, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
 (4, 'ErrorPage', '2015-06-01 10:38:27', '2015-06-01 10:48:32', 'page-not-found', 'Page not found', NULL, '<p>Sorry, it seems you were trying to access a page that doesn''t exist.</p><p>Please check the spelling of the URL you were trying to access and try again.</p>', NULL, NULL, 0, 0, 4, 0, 0, NULL, 'Inherit', 'Inherit', 1, 0),
@@ -614,7 +614,7 @@ CREATE TABLE IF NOT EXISTS `sitetree_versions` (
   `WasPublished` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `AuthorID` int(11) NOT NULL DEFAULT '0',
   `PublisherID` int(11) NOT NULL DEFAULT '0',
-  `ClassName` enum('SiteTree','Page','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
+  `ClassName` enum('SiteTree','Page','HomePage','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
   `Created` datetime DEFAULT NULL,
   `LastEdited` datetime DEFAULT NULL,
   `URLSegment` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
@@ -641,7 +641,7 @@ CREATE TABLE IF NOT EXISTS `sitetree_versions` (
   KEY `ParentID` (`ParentID`),
   KEY `URLSegment` (`URLSegment`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `sitetree_versions`
@@ -652,7 +652,10 @@ INSERT INTO `sitetree_versions` (`ID`, `RecordID`, `Version`, `WasPublished`, `A
 (2, 2, 1, 1, 0, 0, 'Page', '2015-06-01 10:38:27', '2015-06-01 10:38:27', 'about-us', 'About Us', NULL, '<p>You can fill this page out with your own content, or delete it and create your own pages.<br /></p>', NULL, NULL, 1, 1, 2, 0, 0, NULL, 'Inherit', 'Inherit', 0),
 (3, 3, 1, 1, 0, 0, 'Page', '2015-06-01 10:38:27', '2015-06-01 10:38:27', 'contact-us', 'Contact Us', NULL, '<p>You can fill this page out with your own content, or delete it and create your own pages.<br /></p>', NULL, NULL, 1, 1, 3, 0, 0, NULL, 'Inherit', 'Inherit', 0),
 (4, 4, 1, 1, 0, 0, 'ErrorPage', '2015-06-01 10:38:27', '2015-06-01 10:38:27', 'page-not-found', 'Page not found', NULL, '<p>Sorry, it seems you were trying to access a page that doesn''t exist.</p><p>Please check the spelling of the URL you were trying to access and try again.</p>', NULL, NULL, 0, 0, 4, 0, 0, NULL, 'Inherit', 'Inherit', 0),
-(5, 5, 1, 1, 0, 0, 'ErrorPage', '2015-06-01 10:38:28', '2015-06-01 10:38:28', 'server-error', 'Server error', NULL, '<p>Sorry, there was a problem with handling your request.</p>', NULL, NULL, 0, 0, 5, 0, 0, NULL, 'Inherit', 'Inherit', 0);
+(5, 5, 1, 1, 0, 0, 'ErrorPage', '2015-06-01 10:38:28', '2015-06-01 10:38:28', 'server-error', 'Server error', NULL, '<p>Sorry, there was a problem with handling your request.</p>', NULL, NULL, 0, 0, 5, 0, 0, NULL, 'Inherit', 'Inherit', 0),
+(6, 1, 2, 1, 1, 1, 'Page', '2015-06-01 10:38:27', '2015-06-01 23:02:07', 'home', 'Home', NULL, '<div id="contact-form" class="clearfix">First name <span class="required">*</span> Last name <span class="required">*</span> Email Address <span class="required">*</span>Address Suburb Daytime contact number State nswqldntwasavictasPostcode Enquiry type GeneralSalesSupport</div>', NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 0),
+(7, 1, 3, 1, 1, 1, 'HomePage', '2015-06-01 10:38:27', '2015-06-01 23:31:04', 'home', 'Home', NULL, '<div id="contact-form" class="clearfix">First name <span class="required">*</span> Last name <span class="required">*</span> Email Address <span class="required">*</span>Address Suburb Daytime contact number State nswqldntwasavictasPostcode Enquiry type GeneralSalesSupport</div>', NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 0),
+(8, 1, 4, 1, 1, 1, 'HomePage', '2015-06-01 10:38:27', '2015-06-01 23:52:32', 'home', 'Home', NULL, '<div id="contact-form" class="clearfix">Please enter your contact details in the form below.</div>', NULL, NULL, 1, 1, 1, 0, 0, NULL, 'Inherit', 'Inherit', 0);
 
 -- --------------------------------------------------------
 
